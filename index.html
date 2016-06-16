@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ps-scripts by rahulduggal18</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/rahulduggal18/PS-Scripts">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/rahulduggal18/PS-Scripts/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/rahulduggal18/PS-Scripts/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Ps-scripts</h1>
+          <p>Collection of some handy scripts.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/rahulduggal18">rahulduggal18</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="ps-scripts" class="anchor" href="#ps-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PS-Scripts</h1>
+
+<p>Collection of multiple scripts, utilities and tools under one directory.</p>
+
+<h2>
+<a id="1-systeminventory" class="anchor" href="#1-systeminventory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. SystemInventory</h2>
+
+<p>A Power Shell script/tool that collects critical info about servers and emails the report.</p>
+
+<p>The following information is gathered :</p>
+
+<ul>
+<li>Computer Information like RAM, OS, Processor (with Pie-Chart)</li>
+<li>Top 10 Running Processes</li>
+<li>List of Shared Folders</li>
+<li>Disk-Info showing disks having Low Disk space (less than 20%,configurable)</li>
+<li>List of Services that are Automatic but Stopped.</li>
+</ul>
+
+<p>The initial source of the script is <i><a href="https://www.simple-talk.com/content/article.aspx?article=1459">https://www.simple-talk.com/content/article.aspx?article=1459</a>.</i></p>
+
+<p>However, this script is <b>optimised using PowerShell remoting </b>, so it gives very good performance. 
+Also, it has Error Handling and some other features.</p>
+
+<h3>
+<a id="future-features---please-contribute" class="anchor" href="#future-features---please-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future Features   (Please Contribute)</h3>
+
+<ul>
+<li>Currently logged-in users</li>
+<li>Users who have access to servers but are not in our defined TRUST list</li>
+<li>Pending Patches / Windows Updates </li>
+<li>Color <b><i>Highlight Low-Disk Space</i></b> warnings in email report</li>
+</ul>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<h4>
+<a id="help" class="anchor" href="#help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Help</h4>
+
+<p><code>Get-Help .\SystemsReport.ps1 -Full</code></p>
+
+<h4>
+<a id="help-1" class="anchor" href="#help-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Help</h4>
+
+<p>Create a file having the list of servers of which report needs to be generated. Enter one server name in one line. See Example file : ServerNames.txt
+<code>.\SystemsReport.ps1 -ConfigPath .\ServerNames.txt</code></p>
+
+<p>Also, set the following variables as per environment :</p>
+
+<pre><code>#region Variables and Arguments
+$fromemail = "youremail@yourcompany.com"
+$users = "boss@company.com" # List of users to email this report to (separate by comma)
+$server = "yourmailserver.yourcompany.com" #enter SMTP server DNS name / IP address here
+
+$computers = Get-Content $ConfigPath #grab the names of the servers/computers to check from the config file
+
+# Alternatively, set below variable
+&lt;b&gt;# $Computers = "Server1", "Server2"&lt;/b&gt;
+
+# Set free disk space threshold below in percent (default at 20%)
+$thresholdspace = 20
+[int]$ProccessNumToFetch = 10
+$ListOfAttachments = @()
+$Report = @()
+$CurrentTime = Get-Date
+#endregion
+</code></pre>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
