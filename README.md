@@ -31,7 +31,7 @@ Also, it has Error Handling and some other features.
 #### Help
 `Get-Help .\SystemsReport.ps1 -Full`
 
-#### Help
+#### Running Script
 Create a file having the list of servers of which report needs to be generated. Enter one server name in one line. See Example file : ServerNames.txt
 ` .\SystemsReport.ps1 -ConfigPath .\ServerNames.txt`
 
