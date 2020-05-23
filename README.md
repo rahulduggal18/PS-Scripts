@@ -25,7 +25,7 @@ Also, it has Error Handling and some other features.
 * Users who have access to servers but are not in our defined TRUST list
 * Pending Patches / Windows Updates 
 * Color <b><i>Highlight Low-Disk Space</b></i> warnings in email report
-
+* NTFS permissions
 
 ### Usage
 #### Help
