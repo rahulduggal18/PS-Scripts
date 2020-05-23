@@ -12,7 +12,7 @@ The following information is gathered :
 * Top 10 Running Processes
 * List of Shared Folders
 * Disk-Info showing disks having Low Disk space (less than 20%,configurable)
-* List of Services that are Automatic but Stopped.
+* List of all Services that are Automatic but Stopped.
 
 The initial source of the script is <i>https://www.simple-talk.com/content/article.aspx?article=1459.</i>
 
