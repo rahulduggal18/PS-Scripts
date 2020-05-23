@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-   SQLService account password change utility
+   SQLService account password change utility tool
 .DESCRIPTION
     PowerShell utility to change password of SQL service account on (n) servers using remoting
 .PARAMETER Path
