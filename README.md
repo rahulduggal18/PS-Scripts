@@ -1,6 +1,6 @@
 # PS-Scripts
 
-Collection of multiple scripts, utilities and tools under one directory.
+Collection of multiple scripts, utilities and tools under one directory. Share feedback at r1111111r@gmail.com
 
 ## 1. SystemInventory
 
