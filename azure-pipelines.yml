@@ -3,6 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: cmd-line
+
 trigger:
 - feature/*
 
@@ -18,8 +20,15 @@ steps:
     targetType: 'inline'
     script: |
       Write-Host "Hello World"
-      get-childitem -recurse
-      Write-Warning 'all done'
+      dir env:
+      Write-Output 'all done'
     failOnStderr: true
     showWarnings: true
     pwsh: true
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)\*.ps1'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
