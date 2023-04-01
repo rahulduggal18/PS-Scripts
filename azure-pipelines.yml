@@ -29,7 +29,7 @@ steps:
     pwsh: true
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '*.ps1'
+    rootFolderOrFile: '**\*.ps1'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(test)_$(Build.BuildId).zip'
