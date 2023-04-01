@@ -4,6 +4,8 @@
 # https://aka.ms/yaml
 
 name: cmd-line
+variables:
+    AGENT_JOBNAME: ArchiveFiles
 
 trigger:
 - feature/*
@@ -20,14 +22,14 @@ steps:
     targetType: 'inline'
     script: |
       Write-Host "Hello World"
-      dir env: | select-object Name, Value
+      dir env: | select-object Name, Value | ft -autosize
       Write-Output 'all done'
     failOnStderr: true
     showWarnings: true
     pwsh: true
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BUILD_SOURCESDIRECTORY)\*.ps1'
+    rootFolderOrFile: '*.ps1'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(test)_$(Build.BuildId).zip'
