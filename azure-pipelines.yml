@@ -20,15 +20,15 @@ steps:
     targetType: 'inline'
     script: |
       Write-Host "Hello World"
-      dir env:
+      dir env: | select-object Name, Value
       Write-Output 'all done'
     failOnStderr: true
     showWarnings: true
     pwsh: true
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)\*.ps1'
+    rootFolderOrFile: '$(Build.BUILD_SOURCESDIRECTORY)\*.ps1'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(test)_$(Build.BuildId).zip'
     replaceExistingArchive: true
