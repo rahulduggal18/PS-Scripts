@@ -4,16 +4,21 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- feature/*
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "Hello World"
+      get-childitem -recurse
+      Write-Warning 'all done'
+    failOnStderr: true
+    showWarnings: true
+    pwsh: true
 
 pool:
   name: Default
 
 steps:
-- script: echo Hello, world!
+- script: echo Hello, world! to $(test)
   displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project. $(test)
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
