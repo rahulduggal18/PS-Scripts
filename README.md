@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/rd18-GHE-Org/VSTS/_apis/build/status%2Frahulduggal18.PS-Scripts?branchName=feature%2Fazure-pipelines)](https://dev.azure.com/rd18-GHE-Org/VSTS/_build/latest?definitionId=1&branchName=feature%2Fazure-pipelines)
 # PS-Scripts
 
 Collection of multiple scripts, utilities and tools under one directory. Share feedback at r1111111r@gmail.com
